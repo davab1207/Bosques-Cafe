@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bosques y Café | Boutique de Café</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Bosques y Café - Boutique de café de especialidad. Aromas que conectan con la naturaleza."
+  />
+
+  <style>
+   :root {
+  /* PALETA MARRÓN + VERDE */
+  --bg-main: #f3efe8;          /* crema claro */
+  --bg-card: #ffffff;
+  --accent: #5a7f3f;           /* verde bosque */
+  --accent-dark: #3f5a2c;      /* verde más profundo */
+  --text-main: #4a3b2f;        /* marrón café */
+  --text-muted: #7b6a5e;       /* marrón suave */
+  --border-soft: #d6cfc6;
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --radius-card: 16px;
+}
+
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #d2c4b2 0%, #f3efe8 60%, #e8f2e1 100%);
+  /* marrón claro arriba → crema → verde pastel */
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(234, 246, 246, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      flex-shrink: 0;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-text h1 {
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    nav a:hover {
+      background: rgba(79, 157, 166, 0.08);
+      color: var(--accent-dark);
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .social-chip {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(79,157,166,0.35);
+      background: rgba(79,157,166,0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .social-chip:hover {
+      background: rgba(79,157,166,0.12);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    /* HERO */
+    main { padding-bottom: 2.5rem; }
+
+    .hero {
+      padding: 2.4rem 0 2rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-highlight { color: var(--accent-dark); }
+
+    .hero-subtitle {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(79,157,166,0.25);
+      background: rgba(255,255,255,0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(79,157,166,0.5);
+      color: var(--accent-dark);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(79,157,166,0.06);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.7rem;
+    }
+
+    .hero-box {
+      background: rgba(255,255,255,0.9);
+      border-radius: 20px;
+      padding: 1rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.03);
+      font-size: 0.86rem;
+    }
+
+    .hero-box h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 2rem 0 0;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      max-width: 32rem;
+    }
+
+    /* CARRUSEL DE CAFÉS */
+    .coffee-carousel-wrapper {
+      position: relative;
+      margin-top: 0.8rem;
+    }
+
+    .coffee-carousel {
+      display: flex;
+      gap: 0.9rem;
+      padding-bottom: 0.7rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+
+    .coffee-carousel::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .coffee-carousel::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .coffee-item {
+      min-width: 170px;
+      max-width: 190px;
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 0.7rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .coffee-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain; /* no recorta la imagen */
+      border-radius: 10px;
+      background: #eef5f5;
+    }
+
+    .coffee-item h4 {
+      margin-top: 0.45rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .coffee-item p {
+      margin: 0.2rem 0 0.4rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .coffee-price {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+
+    /* CONTACTO */
+    .contact-card {
+      margin-top: 1.4rem;
+      background: var(--bg-card);
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1rem 1.2rem;
+      font-size: 0.88rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-value {
+      font-weight: 500;
+    }
+
+    footer {
+      padding: 1.5rem 0 1.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-box { order: -1; margin-bottom: 0.8rem; }
+      nav { display: none; } /* ocultamos menú para hacerlo simple en móvil */
+      .social-links { font-size: 0.8rem; }
+    }
+
+    @media (max-width: 500px) {
+      .coffee-item {
+        min-width: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a href="#inicio" class="brand">
+        <div class="brand-logo">
+          <!-- 👇 Reemplaza por la ruta de tu logo -->
+          <img src="imagenes/Log_B&C.jpg" alt="Logo Bosques y Café" />
+        </div>
+        <div class="brand-text">
+          <h1>Bosques y Café</h1>
+          <span>Aromas que conectan con la naturaleza</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#cafes">Nuestros cafés</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="social-links">
+        <a class="social-chip" href="https://instagram.com/bosquesycafe" target="_blank" rel="noopener">
+          📸 <span>@bosquesycafe</span>
+        </a>
+        <a class="social-chip" href="https://wa.me/573123805864" target="_blank" rel="noopener">
+          🟢 <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h2 class="hero-title">
+            Boutique de café de especialidad<br />
+            con alma de <span class="hero-highlight">bosque</span>.
+          </h2>
+          <p class="hero-subtitle">
+            Seleccionamos cafés de origen colombiano, tostados en pequeños lotes para que cada taza conserve la esencia de la tierra donde nació.
+          </p>
+          <div class="hero-tags">
+            <span class="tag-pill">Café de origen</span>
+            <span class="tag-pill">Tostado artesanal</span>
+            <span class="tag-pill">Envíos nacionales</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#cafes" class="btn btn-primary">Ver nuestros cafés</a>
+            <a href="#contacto" class="btn btn-ghost">Hablar por WhatsApp</a>
+          </div>
+          <p class="hero-note">
+            Ventas por WhatsApp · Pedidos bajo demanda · Asesoría para tu método de preparación.
+          </p>
+        </div>
+
+        <aside class="hero-box">
+          <h3>Tu pausa entre la ciudad y el bosque</h3>
+          <p>
+            Cada café que ofrecemos viene de manos que cuidan la tierra. Te ayudamos a encontrar el perfil que mejor se adapte
+            a tu gusto: suave, balanceado, intenso o para la noche.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- NUESTROS CAFÉS -->
+    <section id="cafes">
+      <div class="container">
+        <h2 class="section-title">Nuestros cafés</h2>
+        <p class="section-subtitle">
+          Desliza hacia la derecha para descubrir algunos de los cafés que puedes encontrar en nuestra boutique.
+          Solo necesitas cambiar las fotos y textos en el código.
+        </p>
+
+        <div class="coffee-carousel-wrapper">
+          <div class="coffee-carousel">
+
+            <!-- 💡 EJEMPLOS: DUPLICA Y EDITA ESTOS BLOQUES -->
+
+            <!-- Café 1 -->
+            <div class="coffee-item">
+              <!-- Reemplaza RUTA_DE_IMAGEN_1 por tu archivo, ej: imagenes/cafe_salinas.jpg -->
+              <img src="RUTA_DE_IMAGEN_1" alt="Nombre café 1">
+              <h4>Nombre café 1</h4>
+              <p>Notas de sabor, origen, tueste. Ej: Tueste medio, notas a cacao y panela.</p>
+              <div class="coffee-price">$00.000</div>
+            </div>
+
+            <!-- Café 2 -->
+            <div class="coffee-item">
+              <img src="RUTA_DE_IMAGEN_2" alt="Nombre café 2">
+              <h4>Nombre café 2</h4>
+              <p>Descripción breve del perfil de sabor y el uso recomendado.</p>
+              <div class="coffee-price">$00.000</div>
+            </div>
+
+            <!-- Café 3 -->
+            <div class="coffee-item">
+              <img src="RUTA_DE_IMAGEN_3" alt="Nombre café 3">
+              <h4>Nombre café 3</h4>
+              <p>Ej: Proceso honey, ideal para métodos filtrados.</p>
+              <div class="coffee-price">$00.000</div>
+            </div>
+
+            <!-- Café 4 -->
+            <div class="coffee-item">
+              <img src="RUTA_DE_IMAGEN_4" alt="Nombre café 4">
+              <h4>Nombre café 4</h4>
+              <p>Ej: Descafeinado natural, perfecto para la noche.</p>
+              <div class="coffee-price">$00.000</div>
+            </div>
+
+            <!-- 👉 Agrega más cafés copiando un bloque .coffee-item y cambiando ruta, nombre, texto y precio -->
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="container">
+        <h2 class="section-title">Contacto y pedidos</h2>
+        <p class="section-subtitle">
+          Escríbenos por WhatsApp para recibir asesoría personalizada y coordinar tu pedido, forma de pago y envío.
+        </p>
+
+        <div class="contact-card">
+          <div class="contact-row">
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value">+57 312 380 5864</div>
+            </div>
+            <div>
+              <div class="contact-labe
